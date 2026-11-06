@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Termo de Responsabilidade {{NUMERO_TERMO}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#e8630a;--primary-h:#cc5509;--primary-soft:#fdecd8;--dark:#7a3405;--dark2:#a8470a;--bg:#f7f3ef;--card:#fff;--border:#ece5df;--border2:#f3ede7;--text:#2a221c;--muted:#6b5d52;--dim:#9a8b7e;--ok:#198754;--radius:16px;--radius-sm:10px}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Inter','Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+body{background:linear-gradient(180deg,#f7f3ef,#fbf8f5);color:var(--text);padding:24px;font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.doc{max-width:880px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 40px rgba(16,24,40,.1)}
+.doc-head{background:#fff;color:var(--text);padding:22px 32px 0;position:relative;overflow:hidden}
+.doc-head-oficial{display:flex;align-items:center;justify-content:center;gap:18px}
+.doc-head-oficial .faixa{flex:1;height:14px;background:var(--primary);border-radius:3px;max-width:320px}
+.doc-head-oficial img{height:64px;display:block}
+.doc-head-sub{text-align:center;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
+.doc-head-sub h1{font-size:17px;font-weight:800;color:var(--text);letter-spacing:-.2px}
+.doc-head-sub .num{font-size:12px;color:var(--muted);margin-top:4px;font-weight:500}
+.doc-head-sub .badge{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;padding:5px 14px;border-radius:30px;border:1px solid #f3cba3;background:var(--primary-soft);color:#a8470a}
+.doc-head h1{font-size:18px;font-weight:800;letter-spacing:-.2px;z-index:1}
+.doc-head .num{font-size:12px;color:#f3cba3;margin-top:5px;font-weight:500;z-index:1}
+.badge-old{display:none}
+.doc-body{padding:28px 32px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;margin-bottom:0}
+.box{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin-bottom:22px;box-shadow:0 1px 2px rgba(16,24,40,.04),0 6px 20px rgba(16,24,40,.05)}
+.box h3{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--primary);letter-spacing:.8px;margin-bottom:18px;padding-bottom:0;border-bottom:none;display:flex;align-items:center;gap:9px}
+.box h3::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--primary);box-shadow:0 0 0 4px var(--primary-soft);flex:0 0 auto}
+.box-ics{margin-bottom:22px}
+.ic-table{width:100%;border-collapse:separate;border-spacing:0;font-size:12.5px;border:1px solid var(--border2);border-radius:10px;overflow:hidden}
+.ic-table th{background:#faf6f2;text-align:left;padding:11px 14px;font-size:10px;font-weight:700;text-transform:uppercase;color:var(--dim);letter-spacing:.5px;border-bottom:1px solid var(--border)}
+.ic-table td{padding:13px 14px;border-bottom:1px solid var(--border2);color:var(--text)}
+.ic-table td.ic-n{color:var(--primary);font-weight:700;text-align:center}
+.ic-table tbody tr:last-child td{border-bottom:none}
+.ic-table tbody tr:nth-child(even) td{background:#fdfaf7}
+.row{margin-bottom:0}
+.row .lbl{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--dim);letter-spacing:.5px;margin-bottom:3px}
+.row .val{font-size:14.5px;color:var(--text);font-weight:600;line-height:1.35}
+.tag{font-family:monospace;background:var(--primary-soft);color:var(--primary);padding:2px 8px;border-radius:5px;font-size:12px;font-weight:600}
+.clausulas{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin-bottom:22px;box-shadow:0 1px 2px rgba(16,24,40,.04),0 6px 20px rgba(16,24,40,.05)}
+.clausulas h3{font-size:14px;font-weight:700;text-transform:none;color:#1a2332;border-bottom:1px solid var(--border2);padding-bottom:12px;margin-bottom:14px}
+.clausulas p{font-size:12.5px;color:var(--muted);margin-bottom:8px;text-align:justify}
+.lgpd{font-size:10.5px;color:var(--dim);text-align:justify;line-height:1.5;border-top:1px dashed var(--border);padding-top:14px;margin-bottom:22px}
+.acess{display:flex;flex-wrap:wrap;gap:9px;margin-top:0}
+.acess span{display:inline-flex;align-items:center;gap:7px;background:var(--primary-soft);border:1px solid #f3d8bc;border-radius:30px;padding:7px 15px;font-size:12.5px;font-weight:600;color:var(--primary)}
+.acess span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--primary);flex:0 0 auto}
+.sign-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px;margin-bottom:22px}
+.sign{border:1px solid var(--border);border-radius:14px;padding:18px;background:#fff;box-shadow:0 1px 2px rgba(16,24,40,.04),0 6px 20px rgba(16,24,40,.05)}
+.sign h4{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--dim);margin-bottom:4px}
+.sign .who{font-size:13px;font-weight:700;color:#1a2332;margin-bottom:8px}
+.sign .who-org{display:block;font-size:11px;font-weight:600;color:var(--primary);margin-top:2px}
+.canvas-wrap{position:relative;border:1px dashed #b9c4d4;border-radius:6px;background:#fcfdff;height:120px}
+.canvas-wrap canvas{width:100%;height:120px;display:block;touch-action:none;border-radius:6px}
+.sign-img{width:100%;height:150px;object-fit:contain;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px}
+.sign-caption{margin-top:8px;text-align:center;font-size:12px;font-weight:600;color:#1a2332;border-top:1px solid var(--border);padding-top:8px;line-height:1.4}
+.sign-caption .meta{display:block;font-size:11px;font-weight:500;color:var(--muted);margin-top:2px}
+/* padrão DocuSign (cantoneira em laranja da marca) */
+.ds-sig{margin-top:6px}
+.ds-label{font-size:9px;font-weight:600;color:var(--muted);letter-spacing:.3px;margin-bottom:2px}
+.ds-frame{position:relative;padding:4px 4px 4px 14px;display:inline-block;min-width:60%}
+.ds-frame::before{content:"";position:absolute;left:0;top:0;bottom:16px;width:10px;border:2px solid var(--primary);border-right:none;border-radius:4px 0 0 4px;opacity:.5}
+.ds-frame .sign-img{height:70px;width:auto;max-width:260px;border:none;padding:0;background:transparent;display:block}
+.ds-tid{font-family:'SF Mono',Consolas,monospace;font-size:9px;color:#9aa6b6;letter-spacing:1px;border-bottom:1px dashed #c3cdda;padding-bottom:3px;margin-top:-2px;display:block;max-width:300px}
+.ds-data{margin-top:9px;font-size:12.5px;line-height:1.5}
+.ds-data .nm{font-weight:700;color:#1a2332}
+.ds-data .org{color:#1a2332}
+.ds-data .org b{font-weight:700}
+.ds-data .kv{color:var(--muted);font-size:12px}
+.ds-data .kv b{color:#1a2332;font-weight:600}
+.aceite{display:flex;gap:11px;align-items:flex-start;margin-top:0;margin-bottom:22px;padding:16px 18px;background:#fff;border:1px solid var(--border);border-radius:14px;font-size:12.5px;color:var(--text);box-shadow:0 1px 2px rgba(16,24,40,.04),0 6px 20px rgba(16,24,40,.05)}
+.aceite input{width:18px;height:18px;margin-top:1px;accent-color:var(--primary);cursor:pointer;flex:0 0 auto}
+.aceite label{cursor:pointer;line-height:1.45}
+.evidencias{margin-top:0;margin-bottom:22px;border:1px solid var(--border);border-radius:14px;background:#fff;padding:18px 20px;box-shadow:0 1px 2px rgba(16,24,40,.04),0 6px 20px rgba(16,24,40,.05)}
+.evidencias h4{font-size:10.5px;font-weight:700;text-transform:uppercase;color:var(--dim);letter-spacing:.5px;margin-bottom:10px}
+.evidencias .ev-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}
+.evidencias .ev{font-size:11px;color:var(--muted);line-height:1.4}
+.evidencias .ev b{display:block;font-size:10px;font-weight:700;text-transform:uppercase;color:var(--dim);letter-spacing:.4px;margin-bottom:2px}
+.evidencias .ev .mono{font-family:'SF Mono',Consolas,monospace;color:var(--text);word-break:break-all}
+.sign-tools{display:flex;gap:8px;margin-top:8px;align-items:center}
+.btn{border:none;border-radius:6px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-h)}
+.btn-primary:disabled{background:#94a3b8;cursor:not-allowed}
+.btn-ghost{background:#fff;border:1px solid var(--border);color:#334155}
+.btn-ghost:hover{background:#f1f5f9}
+.assinado-ok{display:inline-flex;align-items:center;gap:6px;color:var(--ok);font-weight:700;font-size:12px}
+.foot{padding:0 0 14px;background:#fff;text-align:center}
+.foot-faixa{height:16px;background:var(--primary);margin:0 32px 16px;border-radius:3px}
+.foot-end{font-size:12.5px;font-weight:700;color:var(--text);padding:0 28px}
+.foot-meta{font-size:10px;color:var(--dim);margin-top:8px;padding:0 28px}
+.hash{font-family:monospace;color:#64748b}
+.action-bar{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--border);padding:14px 28px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.msg{padding:12px 16px;border-radius:8px;font-size:13px;margin:10px 0;display:none}
+.msg.ok{background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;display:block}
+.msg.err{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;display:block}
+.aviso{background:var(--primary-soft);border-left:4px solid var(--primary);padding:14px 18px;border-radius:0 10px 10px 0;font-size:13px;color:var(--dark);margin-bottom:24px;font-weight:500}
+@media(max-width:720px){
+  body{padding:10px;font-size:13.5px}
+  .doc{border-radius:12px}
+  .doc-head{padding:16px 16px 0}
+  .doc-head-oficial{gap:10px}
+  .doc-head-oficial .faixa{height:10px;max-width:60px}
+  .doc-head-oficial img{height:48px}
+  .doc-head-sub h1{font-size:15px}
+  .doc-body{padding:18px 16px}
+  .grid2,.sign-grid{grid-template-columns:1fr;gap:14px}
+  .evidencias .ev-grid{grid-template-columns:1fr}
+  /* tabela de ICs rola lateralmente se faltar espaço */
+  .box-ics{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .ic-table{min-width:460px}
+  /* canvas de assinatura maior e confortável no toque */
+  .canvas-wrap,.canvas-wrap canvas{height:150px}
+  .sign-img{height:120px}
+  .foot-end,.foot-meta{padding:0 16px}
+  /* barra de ações: botoes em largura total, empilhados, fixa no rodape */
+  .action-bar{flex-direction:column-reverse;gap:10px;padding:12px 16px}
+  .action-bar .btn{width:100%;justify-content:center;padding:13px 16px;font-size:14px}
+  .msg{font-size:13.5px}
+}
+@media(max-width:380px){
+  .doc-head-sub h1{font-size:14px}
+  .doc-head-sub .num{font-size:11px}
+}
+@media print{
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;color-adjust:exact !important}
+  @page{margin:10mm}
+  html,body{background:#fff !important;padding:0 !important;margin:0}
+  .action-bar,.sign-tools{display:none !important}
+  .doc{max-width:100% !important;border:none !important;box-shadow:none !important;border-radius:0 !important}
+  .doc-head{background:#fff !important}
+  .doc-head-oficial .faixa{background:#e8630a !important}
+  .foot-faixa{background:#e8630a !important}
+  .foot{background:#fff !important}
+  .doc-head::after{display:none}
+  .box,.clausulas,.sign,.evidencias,.aceite{background:#fff !important;box-shadow:none !important;break-inside:avoid}
+  .sign-grid,.sign{break-inside:avoid}
+  .doc-head,.sign-grid{break-inside:avoid}
+  .acess span{background:var(--primary-soft) !important}
+  .sign-img{height:120px}
+}
+</style>
+</head>
+<body>
+<div class="doc">
+  <div class="doc-head">
+    <div class="doc-head-oficial">
+      <span class="faixa"></span>
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCAyMjAgNjAiPjxyZWN0IHdpZHRoPSIyMjAiIGhlaWdodD0iNjAiIHJ4PSI4IiBmaWxsPSIjZTg2MzBhIi8+PHRleHQgeD0iMTEwIiB5PSIzOCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkVNUFJFU0EgRVhFTVBMTzwvdGV4dD48L3N2Zz4=" alt="Empresa Exemplo">
+      <span class="faixa"></span>
+    </div>
+    <div class="doc-head-sub">
+      <h1>Termo de Responsabilidade e Concessão de Uso</h1>
+      <div class="num">Nº {{NUMERO_TERMO}} · Emitido em {{DATA_EMISSAO}} · Empresa Exemplo S.A.</div>
+      <div class="badge">{{STATUS_BADGE}}</div>
+    </div>
+  </div>
+
+  <div class="doc-body">
+    {{AVISO_HTML}}
+
+    <div class="box">
+      <h3>Beneficiário / Solicitante</h3>
+      <div class="grid2" style="margin-bottom:0">
+        <div class="row"><div class="lbl">Nome</div><div class="val">{{SOLIC_NOME}}</div></div>
+        <div class="row"><div class="lbl">E-mail</div><div class="val">{{SOLIC_EMAIL}}</div></div>
+        <div class="row"><div class="lbl">Empresa / Cliente</div><div class="val">{{CLIENTE_NOME}}</div></div>
+        <div class="row"><div class="lbl">Emissão</div><div class="val">{{DATA_EMISSAO}}</div></div>
+      </div>
+    </div>
+
+    <div class="box box-ics">
+      <h3>Equipamentos / Itens de Configuração</h3>
+      {{IC_LISTA}}
+    </div>
+
+    {{ACESSORIOS_BOX}}
+
+    <div class="clausulas">
+      <h3>Cláusulas e Condições</h3>
+      <p>Declaro estar ciente de que sou responsável pela <b>guarda e bom uso dos equipamentos recebidos</b>, comprometendo-me a utilizá-los exclusivamente para <b>fins profissionais</b> e conforme as normas da Empresa. Reconheço que o <b>login e senha fornecidos são de uso pessoal</b> e intransferível, sendo vedado seu compartilhamento com terceiros, e que devo comunicar imediatamente à área de Tecnologia da Informação qualquer suspeita de uso indevido ou quebra de sigilo.</p>
+      <p>Comprometo-me a <b>não instalar softwares não homologados</b> e a não utilizar licenças da Empresa em equipamentos particulares, bem como zelar pelo equipamento em seu estado de conservação.</p>
+      <p>No caso de <b>rescisão do meu contrato</b> de trabalho, independentemente da modalidade, deverei <b>devolver imediatamente os bens</b> da Empresa Exemplo S.A., sob pena de desconto do valor de mercado referente a cada um dos itens descritos neste termo.</p>
+      <p>Caso os equipamentos estejam <b>danificados por mau uso ou extraviados</b>, reconheço a <b>obrigação de ressarcimento</b>, conforme o artigo 462 da Consolidação das Leis do Trabalho, podendo tal valor ser descontado de forma parcelada.</p>
+      <p>No ato da <b>rescisão do contrato de trabalho</b>, os dispositivos <b>deverão ser devolvidos</b> ao departamento de Recursos Humanos.</p>
+    </div>
+
+    <div class="lgpd">
+      Para cumprimento da LEI GERAL DE PROTEÇÃO DE DADOS Nº 13.709, DE 14 DE AGOSTO DE 2018 – LGPD, a EMPRESA EXEMPLO S.A. declara que os dados aqui solicitados são estritamente necessários para a execução legal deste TERMO, e que adota rigorosas medidas para garantir a transparência e a proteção no tratamento de dados baseados nesta execução.
+    </div>
+
+    <div class="sign-grid">
+      <!-- Assinatura do responsável de TI -->
+      <div class="sign">
+        <h4>Responsável de TI (Emissor)</h4>
+        {{SIGN_TI_AREA}}
+      </div>
+      <!-- Assinatura do solicitante -->
+      <div class="sign">
+        <h4>Beneficiário / Solicitante</h4>
+        {{SIGN_SOLIC_AREA}}
+      </div>
+    </div>
+
+    {{ACEITE_HTML}}
+    {{EVIDENCIAS_HTML}}
+
+    <div id="msg" class="msg"></div>
+  </div>
+
+  <div class="foot">
+    <div class="foot-faixa"></div>
+    <div class="foot-end">Rua Exemplo, 100 – Centro – Cidade Exemplo – UF – 00000-000</div>
+    <div class="foot-meta">Documento gerado pelo Desk Manager · Empresa Exemplo S.A. · Hash: <span class="hash">{{HASH}}</span></div>
+  </div>
+
+  {{ACTION_BAR}}
+</div>
+
+<script>
+var WEBHOOK = "{{WEBHOOK}}";
+var MODO = "{{MODO}}";          // "ti" (embed, assina TI) | "solic" (link externo, assina solicitante) | "view" (so leitura)
+var TOKEN_SIG = "{{TOKEN_SIG}}";
+
+function initCanvas(id){
+  var c = document.getElementById(id);
+  if(!c) return null;
+  var ctx = c.getContext("2d");
+  var ratio = Math.max(window.devicePixelRatio||1,1);
+  function resize(){
+    var r = c.getBoundingClientRect();
+    c.width = r.width*ratio; c.height = r.height*ratio;
+    ctx.scale(ratio,ratio); ctx.lineWidth=2.2; ctx.lineCap="round"; ctx.strokeStyle="#0b1f3a";
+  }
+  resize();
+  var drawing=false, has=false, lx=0, ly=0;
+  function pos(e){
+    var r=c.getBoundingClientRect(); var t=e.touches?e.touches[0]:e;
+    return {x:t.clientX-r.left, y:t.clientY-r.top};
+  }
+  function start(e){drawing=true;var p=pos(e);lx=p.x;ly=p.y;e.preventDefault();}
+  function move(e){if(!drawing)return;var p=pos(e);ctx.beginPath();ctx.moveTo(lx,ly);ctx.lineTo(p.x,p.y);ctx.stroke();lx=p.x;ly=p.y;has=true;e.preventDefault();}
+  function end(){drawing=false;}
+  c.addEventListener("mousedown",start);c.addEventListener("mousemove",move);window.addEventListener("mouseup",end);
+  c.addEventListener("touchstart",start);c.addEventListener("touchmove",move);c.addEventListener("touchend",end);
+  function exportNorm(){
+    // recorta o bounding box do traço e re-exporta num canvas padrao (igual nos 2 lados)
+    try{
+      var w=c.width,h=c.height,img=ctx.getImageData(0,0,w,h).data;
+      var minx=w,miny=h,maxx=0,maxy=0,achou=false;
+      for(var y=0;y<h;y++){for(var x=0;x<w;x++){var a=img[(y*w+x)*4+3];if(a>20){achou=true;if(x<minx)minx=x;if(x>maxx)maxx=x;if(y<miny)miny=y;if(y>maxy)maxy=y;}}}
+      if(!achou) return c.toDataURL("image/png");
+      var pad=12; minx=Math.max(0,minx-pad);miny=Math.max(0,miny-pad);maxx=Math.min(w,maxx+pad);maxy=Math.min(h,maxy+pad);
+      var bw=maxx-minx,bh=maxy-miny;
+      var OW=460,OH=150;
+      var out=document.createElement("canvas");out.width=OW;out.height=OH;
+      var octx=out.getContext("2d");
+      var sc=Math.min(OW/bw,OH/bh);var dw=bw*sc,dh=bh*sc;
+      octx.drawImage(c,minx,miny,bw,bh,(OW-dw)/2,(OH-dh)/2,dw,dh);
+      return out.toDataURL("image/png");
+    }catch(e){return c.toDataURL("image/png");}
+  }
+  return {
+    clear:function(){ctx.clearRect(0,0,c.width,c.height);has=false;},
+    isEmpty:function(){return !has;},
+    data:function(){return has?exportNorm():"";}
+  };
+}
+
+var padTI=null, padSolic=null;
+if(MODO==="ti"){ padTI = initCanvas("cnv_ti"); }
+if(MODO==="solic"){ padSolic = initCanvas("cnv_solic"); }
+
+function limpar(which){ if(which==="ti"&&padTI)padTI.clear(); if(which==="solic"&&padSolic)padSolic.clear(); }
+
+function showMsg(txt,ok){var m=document.getElementById("msg");m.className="msg "+(ok?"ok":"err");m.textContent=txt;}
+
+/* ===== Aceite explícito (item 3) + metadados de auditoria (item 1) ===== */
+var IP_CLIENTE = "";
+// tenta descobrir o IP público do signatário (fonte externa; se falhar, servidor nao bloqueia)
+(function(){
+  try{
+    fetch("https://api.ipify.org?format=json",{cache:"no-store"})
+      .then(function(r){return r.json();})
+      .then(function(d){ IP_CLIENTE = (d&&d.ip)?String(d.ip):""; })
+      .catch(function(){});
+  }catch(e){}
+})();
+
+// habilita o botao Confirmar somente apos marcar o aceite
+function toggleAceite(){
+  var chk=document.getElementById("chkAceite");
+  var btn=document.getElementById("btnAssinar");
+  if(chk && btn){ btn.disabled = !chk.checked; }
+}
+(function(){
+  var chk=document.getElementById("chkAceite");
+  var btn=document.getElementById("btnAssinar");
+  if(chk && btn){ btn.disabled = true; }  // começa travado até marcar o aceite
+})();
+
+function assinar(){
+  var pad = (MODO==="ti")?padTI:padSolic;
+  var chk=document.getElementById("chkAceite");
+  if(chk && !chk.checked){ showMsg("Marque a confirmação de leitura e concordância antes de assinar.",false); return; }
+  if(!pad || pad.isEmpty()){ showMsg("Desenhe sua assinatura antes de confirmar.",false); return; }
+  var btn=document.getElementById("btnAssinar"); if(btn){btn.disabled=true;btn.textContent="Enviando...";}
+  var body = new URLSearchParams();
+  body.append("case","assinar");
+  body.append("token_sig",TOKEN_SIG);
+  body.append("papel",MODO);
+  body.append("assinatura",pad.data());
+  body.append("aceite","1");
+  body.append("ua", (navigator && navigator.userAgent) ? navigator.userAgent : "");
+  body.append("ip_cli", IP_CLIENTE || "");
+  fetch(WEBHOOK,{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},body:body.toString()})
+   .then(function(r){return r.json();})
+   .then(function(d){
+      if(d && (d.ok||d.sucesso)){
+        document.open();
+        document.write(d.base64?decodeURIComponent(escape(atob(d.base64))):("<h2 style='font-family:Inter,Arial;padding:40px;text-align:center'>"+(d.mensagem||"Assinatura registrada!")+"</h2>"));
+        document.close();
+      } else {
+        showMsg((d&&d.mensagem)||"Falha ao registrar a assinatura.",false);
+        if(btn){btn.disabled=false;btn.textContent="Confirmar assinatura";}
+      }
+   })
+   .catch(function(e){
+      showMsg("Erro de conexão: "+e,false);
+      if(btn){btn.disabled=false;btn.textContent="Confirmar assinatura";}
+   });
+}
+
+function gerarPDF(){ window.print(); }
+</script>
+</body>
+</html>
